@@ -1,0 +1,16 @@
+[
+  {
+    "upper_quartile_traffic_cutoff":4933.0,
+    "upper_quartile_valid_temp_rows":12061,
+    "upper_quartile_temp_min_c":-26.76,
+    "upper_quartile_temp_median_c":11.23,
+    "upper_quartile_temp_max_c":36.14,
+    "weather_highest":"Clouds",
+    "weather_highest_average":3618.4497494065,
+    "weather_highest_n":15164,
+    "weather_lowest":"Squall",
+    "weather_lowest_average":2061.75,
+    "weather_lowest_n":4,
+    "weather_high_low_difference":1556.6997494065
+  }
+]

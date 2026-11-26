@@ -1,0 +1,24 @@
+[
+  {
+    "records":48204,
+    "columns":9,
+    "duplicate_rows":17,
+    "missing_values":{
+      "holiday":48143
+    },
+    "date_start":"2012-10-02 09:00:00",
+    "date_end":"2018-09-30 23:00:00",
+    "zero_kelvin_rows":10,
+    "rain_above_500_mm_rows":1,
+    "maximum_rain_1h_mm":9831.3,
+    "volume_mean":3259.8183553232,
+    "volume_median":3380.0,
+    "volume_sample_std":1986.8606704464,
+    "volume_sample_variance":3947615.3237665398,
+    "volume_range":7280,
+    "volume_min":0,
+    "volume_max":7280,
+    "temp_traffic_correlation":0.1302987982,
+    "temp_traffic_correlation_excluding_zero_kelvin":0.1322913151
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "n":48204,
+    "congestion_count":7100,
+    "clear_count":13391,
+    "clear_and_congestion_count":1763,
+    "high_temp_and_congestion_count":1867,
+    "clear_given_congestion":0.2483098592,
+    "high_temp_given_congestion":0.2629577465,
+    "p_congestion":0.1472906813,
+    "p_clear":0.2777985229,
+    "p_clear_and_congestion":0.0365737283,
+    "p_clear_times_p_congestion":0.0409171337,
+    "clear_congestion_count":1763,
+    "clear_noncongestion_count":11628,
+    "cloudy_congestion_count":2592,
+    "cloudy_noncongestion_count":12572,
+    "odds_clear":0.1516167871,
+    "odds_cloudy":0.2061724467,
+    "odds_ratio_clear_vs_clouds":0.7353882126
+  }
+]
