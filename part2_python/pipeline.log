@@ -1,0 +1,63 @@
+2026-11-21 18:25:53,354 | DEBUG | pipeline | Debug logging is enabled only in pipeline.log; normal console output remains INFO-level.
+2026-11-21 18:25:53,354 | INFO | pipeline | Logger configured for pipeline run.
+2026-11-21 18:25:53,354 | INFO | pipeline | Part 2 pipeline started at 2026-11-21T18:25:53.354779
+2026-11-21 18:25:53,355 | INFO | pipeline | Loading raw dataset from synthetic_traffic.csv
+2026-11-21 18:25:53,360 | INFO | pipeline | Loaded raw dataset with 7 rows and 9 columns.
+2026-11-21 18:25:53,360 | INFO | pipeline | Starting dataset cleaning. Before cleaning shape=(7, 9)
+2026-11-21 18:25:53,361 | WARNING | pipeline | Removed 1 exact duplicate rows because repeated identical observations do not add new records.
+2026-11-21 18:25:53,362 | DEBUG | pipeline | Numeric parsing for temp completed with no conversion failures.
+2026-11-21 18:25:53,363 | WARNING | pipeline | Coerced 1 non-numeric rain_1h values to missing so physical checks and imputation can handle them.
+2026-11-21 18:25:53,364 | DEBUG | pipeline | Numeric parsing for snow_1h completed with no conversion failures.
+2026-11-21 18:25:53,365 | DEBUG | pipeline | Numeric parsing for clouds_all completed with no conversion failures.
+2026-11-21 18:25:53,366 | DEBUG | pipeline | Numeric parsing for traffic_volume completed with no conversion failures.
+2026-11-21 18:25:53,366 | WARNING | pipeline | Set 1 temperatures outside the plausible 150–400 K range to missing before imputation.
+2026-11-21 18:25:53,366 | WARNING | pipeline | Set 1 negative traffic-volume values to missing because vehicle counts cannot be negative.
+2026-11-21 18:25:53,372 | WARNING | pipeline | Removed 1 rows with missing or unparseable timestamps (0 missing, 1 unparseable) because time features require valid timestamps.
+2026-11-21 18:25:53,375 | WARNING | pipeline | Replaced 1 missing holiday categories with Unknown because category values must be explicit.
+2026-11-21 18:25:53,375 | DEBUG | pipeline | No blank holiday categories required replacement.
+2026-11-21 18:25:53,375 | DEBUG | pipeline | No holiday category values required whitespace trimming.
+2026-11-21 18:25:53,377 | DEBUG | pipeline | No missing weather_main categories required replacement.
+2026-11-21 18:25:53,377 | DEBUG | pipeline | No blank weather_main categories required replacement.
+2026-11-21 18:25:53,377 | WARNING | pipeline | Trimmed surrounding whitespace from 1 weather_main category values to normalize grouping labels.
+2026-11-21 18:25:53,378 | WARNING | pipeline | Standardized 1 weather_main values to title case for consistent category grouping.
+2026-11-21 18:25:53,379 | DEBUG | pipeline | No missing weather_description categories required replacement.
+2026-11-21 18:25:53,379 | WARNING | pipeline | Replaced 1 blank weather_description categories with Unknown because empty labels are not valid categories.
+2026-11-21 18:25:53,379 | WARNING | pipeline | Trimmed surrounding whitespace from 1 weather_description category values to normalize grouping labels.
+2026-11-21 18:25:53,379 | WARNING | pipeline | Standardized 2 weather_description values to lowercase for consistent category grouping.
+2026-11-21 18:25:53,380 | WARNING | pipeline | Imputed 1 missing rain_1h values with the dataset median 0.0000 because no month-specific strategy is defined for this field.
+2026-11-21 18:25:53,381 | WARNING | pipeline | Imputed 1 missing snow_1h values with the dataset median 0.0000 because no month-specific strategy is defined for this field.
+2026-11-21 18:25:53,382 | WARNING | pipeline | Imputed 1 missing clouds_all values with the dataset median 10.0000 because no month-specific strategy is defined for this field.
+2026-11-21 18:25:53,383 | WARNING | pipeline | Month 1: imputed 1 missing temp values with the month-specific median 280.0000 to preserve seasonal patterns.
+2026-11-21 18:25:53,384 | WARNING | pipeline | Month 1: imputed 1 missing traffic_volume values with the month-specific median 100.0000 to preserve seasonal patterns.
+2026-11-21 18:25:53,385 | WARNING | pipeline | Month 2: imputed 1 missing temp values with the month-specific median 310.0000 to preserve seasonal patterns.
+2026-11-21 18:25:53,387 | WARNING | pipeline | Month 2: imputed 1 missing traffic_volume values with the month-specific median 300.0000 to preserve seasonal patterns.
+2026-11-21 18:25:53,387 | INFO | pipeline | Cleaning complete. After cleaning shape=(5, 9)
+2026-11-21 18:25:53,387 | DEBUG | pipeline | Cleaning retained 5 of 7 raw rows.
+2026-11-21 18:25:53,391 | INFO | pipeline | Saved cleaned data to traffic_cleaned.csv
+2026-11-21 18:25:53,391 | DEBUG | pipeline | Before feature engineering shape=(5, 9)
+2026-11-21 18:25:53,391 | INFO | feature_engineering | Adding time features to dataframe.
+2026-11-21 18:25:53,396 | INFO | feature_engineering | Time features created with hour, weekday, weekend, month, and cyclic encodings.
+2026-11-21 18:25:53,396 | INFO | feature_engineering | Adding weather-derived features.
+2026-11-21 18:25:53,398 | INFO | feature_engineering | Weather flags created for clear, rain, snow, and visibility conditions.
+2026-11-21 18:25:53,398 | INFO | feature_engineering | Scaling selected continuous variables.
+2026-11-21 18:25:53,400 | INFO | feature_engineering | Scaling complete for continuous variables.
+2026-11-21 18:25:53,400 | INFO | feature_engineering | Creating congestion category.
+2026-11-21 18:25:53,402 | INFO | feature_engineering | Congestion category created using quartile thresholds: Q1=100.0000, Q2=200.0000, Q3=300.0000.
+2026-11-21 18:25:53,402 | INFO | pipeline | Feature engineering complete. Before/after shape=(5, 9) -> (5, 27)
+2026-11-21 18:25:53,403 | INFO | visualizations | Generating hourly average traffic figure.
+2026-11-21 18:25:53,436 | DEBUG | visualizations | Saving figure to hourly_average_traffic.png
+2026-11-21 18:25:53,554 | INFO | visualizations | Saved figure to hourly_average_traffic.png
+2026-11-21 18:25:53,554 | INFO | visualizations | Generating weather impact figure.
+2026-11-21 18:25:53,570 | DEBUG | visualizations | Saving figure to weather_average_traffic.png
+2026-11-21 18:25:53,695 | INFO | visualizations | Saved figure to weather_average_traffic.png
+2026-11-21 18:25:53,695 | INFO | visualizations | Generating weekday versus weekend comparison figure.
+2026-11-21 18:25:53,709 | DEBUG | visualizations | Saving figure to weekday_weekend_traffic.png
+2026-11-21 18:25:53,808 | INFO | visualizations | Saved figure to weekday_weekend_traffic.png
+2026-11-21 18:25:53,808 | INFO | visualizations | Generating temperature versus traffic scatter plot.
+2026-11-21 18:25:53,817 | DEBUG | visualizations | Saving figure to temperature_vs_traffic.png
+2026-11-21 18:25:53,949 | INFO | visualizations | Saved figure to temperature_vs_traffic.png
+2026-11-21 18:25:53,950 | INFO | visualizations | All Part 2 visualisations saved to figures
+2026-11-21 18:25:53,952 | INFO | pipeline | Generated visual outputs: ['hourly_average_traffic.png', 'weather_average_traffic.png', 'weekday_weekend_traffic.png', 'temperature_vs_traffic.png']
+2026-11-21 18:25:53,955 | INFO | pipeline | Saved engineered feature data to traffic_features.csv
+2026-11-21 18:25:53,955 | INFO | pipeline | Pipeline finished successfully.
+2026-11-21 18:25:54,434 | ERROR | __main__ | CLI request failed: Invalid timestamp: invalid. Use YYYY-MM-DD HH:MM:SS format.
