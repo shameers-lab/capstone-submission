@@ -1,0 +1,53 @@
+{
+  "model": "mlp_neural_network",
+  "method": "LIME tabular local surrogate",
+  "test_observation_date_time": "2018-04-17 15:00:00",
+  "predicted_proxy_probability": 8.805034893377799e-06,
+  "local_feature_contributions": [
+    {
+      "condition": "hour_cos <= -0.71",
+      "contribution": 0.3850014904857326
+    },
+    {
+      "condition": "weather_main=Clear",
+      "contribution": -0.23908123025491615
+    },
+    {
+      "condition": "day_type=Weekday",
+      "contribution": 0.13094647439092538
+    },
+    {
+      "condition": "clouds_all <= 1.00",
+      "contribution": -0.12345306883228657
+    },
+    {
+      "condition": "snow_1h <= 0.00",
+      "contribution": 0.07437618742005636
+    },
+    {
+      "condition": "holiday=Unknown",
+      "contribution": 0.07086175322900289
+    },
+    {
+      "condition": "hour_sin <= -0.71",
+      "contribution": 0.0455230560741519
+    },
+    {
+      "condition": "-0.22 < day_of_week_cos <= 0.62",
+      "contribution": -0.023824126243692862
+    },
+    {
+      "condition": "272.85 < temp <= 282.75",
+      "contribution": -0.013870929199479189
+    },
+    {
+      "condition": "rain_1h <= 0.00",
+      "contribution": 0.011607147885590093
+    },
+    {
+      "condition": "0.00 < day_of_week_sin <= 0.78",
+      "contribution": -0.008756037653763994
+    }
+  ],
+  "limitation": "One local approximation; not a causal explanation or global model summary."
+}

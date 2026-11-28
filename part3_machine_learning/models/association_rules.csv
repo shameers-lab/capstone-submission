@@ -1,0 +1,38 @@
+antecedent,consequent,antecedent_count,support,confidence,lift
+time_band=Midday AND day_type=Weekday,high_or_severe_congestion,8448,0.17106273476248782,0.9757339015151515,1.9507795831180237
+time_band=Midday AND weather_group=Rain,high_or_severe_congestion,1791,0.036109324091559966,0.9715242881072027,1.9423633254925639
+time_band=Midday AND weather_group=Other,high_or_severe_congestion,4516,0.09037707265445037,0.9643489813994686,1.9280177730767651
+time_band=AM peak AND day_type=Weekday,high_or_severe_congestion,5883,0.11770809554444145,0.9641339452660207,1.9275878524825218
+time_band=Midday AND weather_group=Clear,high_or_severe_congestion,2903,0.05800319588270696,0.9627971064416121,1.9249151177537949
+time_band=Midday,high_or_severe_congestion,11786,0.23346545748853426,0.9545223146105549,1.9083713705974115
+time_band=Midday AND weather_group=Fog_or_low_visibility,high_or_severe_congestion,1654,0.031606034822670014,0.9207980652962515,1.8409466588843446
+time_band=Midday AND day_type=Weekend,high_or_severe_congestion,3338,0.062402722726046446,0.9008388256440982,1.801042257543447
+time_band=Midday AND weather_group=Snow,high_or_severe_congestion,743,0.013883412538651503,0.9004037685060565,1.8001724501286758
+time_band=PM peak AND weather_group=Other,high_or_severe_congestion,3158,0.05621848216323905,0.8578214059531349,1.7150377598814917
+time_band=PM peak AND weather_group=Clear,high_or_severe_congestion,1910,0.033556768423018656,0.8465968586387435,1.6925965823261608
+time_band=PM peak AND day_type=Weekday,high_or_severe_congestion,5640,0.09838753190694585,0.8406028368794326,1.6806127666048136
+time_band=PM peak AND weather_group=Rain,high_or_severe_congestion,1326,0.02278622865088094,0.8280542986425339,1.6555245410624753
+time_band=PM peak,high_or_severe_congestion,7861,0.13431008363251498,0.8233049230377815,1.646029139756932
+time_band=PM peak AND day_type=Weekend,high_or_severe_congestion,2221,0.035922551725569137,0.7793786582620441,1.5582075929662733
+time_band=AM peak AND weather_group=Rain,high_or_severe_congestion,1277,0.01998464316101853,0.7541111981205951,1.5076904947239698
+time_band=AM peak AND weather_group=Fog_or_low_visibility,high_or_severe_congestion,2036,0.030734430448046152,0.7274066797642437,1.454300293660261
+time_band=AM peak AND weather_group=Other,high_or_severe_congestion,2216,0.033183223691037,0.7215703971119134,1.4426318448938582
+time_band=PM peak AND weather_group=Fog_or_low_visibility,high_or_severe_congestion,859,0.012825035798036816,0.719441210710128,1.4383749738813765
+time_band=AM peak,high_or_severe_congestion,8264,0.12337352397949654,0.7193852855759922,1.4382631630590963
+time_band=AM peak AND weather_group=Clear,high_or_severe_congestion,2035,0.02928175649033972,0.6933660933660933,1.386243130903325
+day_type=Weekday AND weather_group=Other,high_or_severe_congestion,10917,0.13985099715690955,0.6172941284235596,1.2341528572876137
+weather_group=Other,high_or_severe_congestion,15162,0.18314068109656131,0.5820472233214615,1.1636839079823778
+day_type=Weekday AND weather_group=Rain,high_or_severe_congestion,5500,0.06312905970489967,0.5530909090909091,1.105791703442189
+day_type=Weekday,high_or_severe_congestion,34487,0.3926577707680495,0.5486415170933975,1.0968960577619926
+day_type=Weekday AND weather_group=Snow,high_or_severe_congestion,2159,0.023657833025504803,0.5280222325150533,1.0556720321219348
+day_type=Weekday AND weather_group=Fog_or_low_visibility,high_or_severe_congestion,5917,0.06377238674331251,0.5193510224776069,1.0383357281606689
+weather_group=Rain,high_or_severe_congestion,7492,0.07983481021852366,0.5134810464495462,1.0265999164079447
+day_type=Weekday AND weather_group=Clear,high_or_severe_congestion,9268,0.09483885695312014,0.49309451877427707,0.9858412404022939
+day_type=Weekend AND weather_group=Other,high_or_severe_congestion,4245,0.043289683939651775,0.49140164899882216,0.9824566948927991
+weather_group=Snow,high_or_severe_congestion,2875,0.027642310166642457,0.463304347826087,0.9262819105757055
+weather_group=Clear,high_or_severe_congestion,13384,0.12434889077967086,0.4476987447698745,0.8950817116515618
+weather_group=Fog_or_low_visibility,high_or_severe_congestion,8241,0.07591259053271629,0.4438781701249848,0.8874432571493089
+day_type=Weekend AND weather_group=Rain,high_or_severe_congestion,1992,0.016705750513624006,0.4041164658634538,0.8079478939740373
+day_type=Weekend,high_or_severe_congestion,13700,0.10751862535538631,0.3781751824817518,0.7560836245227854
+day_type=Weekend AND weather_group=Clear,high_or_severe_congestion,4116,0.02951003382655073,0.3454810495626822,0.690718419022362
+day_type=Weekend AND weather_group=Fog_or_low_visibility,high_or_severe_congestion,2324,0.01214020378940378,0.25172117039586916,0.5032647928746887

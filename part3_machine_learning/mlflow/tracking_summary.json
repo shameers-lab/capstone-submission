@@ -1,0 +1,382 @@
+{
+  "experiment_name": "metro-traffic-capstone",
+  "tracked_runs": [
+    {
+      "run_id": "a336b27581f5448499e75e040d548968",
+      "run_name": "proxy_classification_logistic_regression",
+      "parameters": {
+        "algorithm": "logistic_regression",
+        "task": "proxy_classification",
+        "validation": "chronological 80/20",
+        "estimator.C": "1.0",
+        "estimator.class_weight": "balanced",
+        "estimator.dual": "False",
+        "estimator.fit_intercept": "True",
+        "estimator.intercept_scaling": "1",
+        "estimator.max_iter": "1200",
+        "estimator.multi_class": "deprecated",
+        "estimator.penalty": "l2",
+        "estimator.random_state": "42",
+        "estimator.solver": "lbfgs",
+        "estimator.tol": "0.0001",
+        "estimator.verbose": "0",
+        "estimator.warm_start": "False"
+      },
+      "metrics": {
+        "accuracy": 0.855882963270388,
+        "precision": 0.6612466124661247,
+        "recall": 0.8926829268292683,
+        "f1": 0.7597301504929943,
+        "roc_auc": 0.9492143450969199
+      }
+    },
+    {
+      "run_id": "9aee71599ff243958011cf3d7876ed0b",
+      "run_name": "proxy_classification_random_forest",
+      "parameters": {
+        "algorithm": "random_forest",
+        "task": "proxy_classification",
+        "validation": "chronological 80/20",
+        "estimator.bootstrap": "True",
+        "estimator.ccp_alpha": "0.0",
+        "estimator.class_weight": "balanced_subsample",
+        "estimator.criterion": "gini",
+        "estimator.max_depth": "10",
+        "estimator.max_features": "sqrt",
+        "estimator.min_impurity_decrease": "0.0",
+        "estimator.min_samples_leaf": "8",
+        "estimator.min_samples_split": "2",
+        "estimator.min_weight_fraction_leaf": "0.0",
+        "estimator.n_estimators": "80",
+        "estimator.n_jobs": "-1",
+        "estimator.oob_score": "False",
+        "estimator.random_state": "42",
+        "estimator.verbose": "0",
+        "estimator.warm_start": "False"
+      },
+      "metrics": {
+        "accuracy": 0.9706370616310438,
+        "precision": 0.9130929791271347,
+        "recall": 0.9780487804878049,
+        "f1": 0.9444553483807655,
+        "roc_auc": 0.9892065751947572
+      }
+    },
+    {
+      "run_id": "69f763a30c8c43fe9cd915c483348ced",
+      "run_name": "proxy_classification_mlp_neural_network",
+      "parameters": {
+        "algorithm": "mlp_neural_network",
+        "task": "proxy_classification",
+        "validation": "chronological 80/20",
+        "estimator.activation": "relu",
+        "estimator.alpha": "0.0001",
+        "estimator.batch_size": "auto",
+        "estimator.beta_1": "0.9",
+        "estimator.beta_2": "0.999",
+        "estimator.early_stopping": "True",
+        "estimator.epsilon": "1e-08",
+        "estimator.hidden_layer_sizes": "(32, 16)",
+        "estimator.learning_rate": "constant",
+        "estimator.learning_rate_init": "0.001",
+        "estimator.max_fun": "15000",
+        "estimator.max_iter": "120",
+        "estimator.momentum": "0.9",
+        "estimator.n_iter_no_change": "10",
+        "estimator.nesterovs_momentum": "True",
+        "estimator.power_t": "0.5",
+        "estimator.random_state": "42",
+        "estimator.shuffle": "True",
+        "estimator.solver": "adam",
+        "estimator.tol": "0.0001",
+        "estimator.validation_fraction": "0.1",
+        "estimator.verbose": "False",
+        "estimator.warm_start": "False"
+      },
+      "metrics": {
+        "accuracy": 0.9714671093587881,
+        "precision": 0.9357798165137615,
+        "recall": 0.9536585365853658,
+        "f1": 0.9446345882826656,
+        "roc_auc": 0.9911163741060649
+      }
+    },
+    {
+      "run_id": "3ac8212de97048479bc307ee9c47f0f4",
+      "run_name": "traffic_regression_ridge_regression",
+      "parameters": {
+        "algorithm": "ridge_regression",
+        "task": "traffic_regression",
+        "validation": "chronological 80/20",
+        "estimator.alpha": "1.0",
+        "estimator.copy_X": "True",
+        "estimator.fit_intercept": "True",
+        "estimator.positive": "False",
+        "estimator.solver": "auto",
+        "estimator.tol": "0.0001"
+      },
+      "metrics": {
+        "mae": 845.0901051260839,
+        "r_squared": 0.6985718312234979
+      }
+    },
+    {
+      "run_id": "ea49138669f8491d8b194a32d22916b1",
+      "run_name": "traffic_regression_random_forest_regression",
+      "parameters": {
+        "algorithm": "random_forest_regression",
+        "task": "traffic_regression",
+        "validation": "chronological 80/20",
+        "estimator.bootstrap": "True",
+        "estimator.ccp_alpha": "0.0",
+        "estimator.criterion": "squared_error",
+        "estimator.max_depth": "10",
+        "estimator.max_features": "1.0",
+        "estimator.min_impurity_decrease": "0.0",
+        "estimator.min_samples_leaf": "8",
+        "estimator.min_samples_split": "2",
+        "estimator.min_weight_fraction_leaf": "0.0",
+        "estimator.n_estimators": "80",
+        "estimator.n_jobs": "-1",
+        "estimator.oob_score": "False",
+        "estimator.random_state": "42",
+        "estimator.verbose": "0",
+        "estimator.warm_start": "False"
+      },
+      "metrics": {
+        "mae": 289.47048068444144,
+        "r_squared": 0.929454133541521
+      }
+    },
+    {
+      "run_id": "2a306e40fcbb4e888739586c615d205e",
+      "run_name": "registered_MetroTrafficProxyRiskClassifier",
+      "parameters": {
+        "algorithm": "mlp_neural_network",
+        "threshold": "0.5",
+        "split": "chronological 80/20"
+      },
+      "metrics": {
+        "accuracy": 0.9714671093587881,
+        "precision": 0.9357798165137615,
+        "recall": 0.9536585365853658,
+        "f1": 0.9446345882826656,
+        "roc_auc": 0.9911163741060649
+      }
+    },
+    {
+      "run_id": "3cc1879a004c4cbeaca5494e4515726f",
+      "run_name": "registered_MetroTrafficVolumeRegressor",
+      "parameters": {
+        "algorithm": "random_forest_regression",
+        "split": "chronological 80/20"
+      },
+      "metrics": {
+        "mae": 289.47048068444144,
+        "r_squared": 0.929454133541521
+      }
+    },
+    {
+      "run_id": "31af2f97af5c4ad0b3af5d9f9e622601",
+      "run_name": "proxy_classification_logistic_regression",
+      "parameters": {
+        "algorithm": "logistic_regression",
+        "task": "proxy_classification",
+        "validation": "chronological 80/20",
+        "estimator.C": "1.0",
+        "estimator.class_weight": "balanced",
+        "estimator.dual": "False",
+        "estimator.fit_intercept": "True",
+        "estimator.intercept_scaling": "1",
+        "estimator.max_iter": "1200",
+        "estimator.multi_class": "deprecated",
+        "estimator.penalty": "l2",
+        "estimator.random_state": "42",
+        "estimator.solver": "lbfgs",
+        "estimator.tol": "0.0001",
+        "estimator.verbose": "0",
+        "estimator.warm_start": "False"
+      },
+      "metrics": {
+        "accuracy": 0.855882963270388,
+        "precision": 0.6612466124661247,
+        "recall": 0.8926829268292683,
+        "f1": 0.7597301504929943,
+        "roc_auc": 0.9492143450969199
+      }
+    },
+    {
+      "run_id": "1aaa4be4e3d54d7f8bb3515473b9909e",
+      "run_name": "proxy_classification_random_forest",
+      "parameters": {
+        "algorithm": "random_forest",
+        "task": "proxy_classification",
+        "validation": "chronological 80/20",
+        "estimator.bootstrap": "True",
+        "estimator.ccp_alpha": "0.0",
+        "estimator.class_weight": "balanced_subsample",
+        "estimator.criterion": "gini",
+        "estimator.max_depth": "10",
+        "estimator.max_features": "sqrt",
+        "estimator.min_impurity_decrease": "0.0",
+        "estimator.min_samples_leaf": "8",
+        "estimator.min_samples_split": "2",
+        "estimator.min_weight_fraction_leaf": "0.0",
+        "estimator.n_estimators": "80",
+        "estimator.n_jobs": "-1",
+        "estimator.oob_score": "False",
+        "estimator.random_state": "42",
+        "estimator.verbose": "0",
+        "estimator.warm_start": "False"
+      },
+      "metrics": {
+        "accuracy": 0.9706370616310438,
+        "precision": 0.9130929791271347,
+        "recall": 0.9780487804878049,
+        "f1": 0.9444553483807655,
+        "roc_auc": 0.9892065751947572
+      }
+    },
+    {
+      "run_id": "888effc1170446bb88314a10feb7f179",
+      "run_name": "proxy_classification_mlp_neural_network",
+      "parameters": {
+        "algorithm": "mlp_neural_network",
+        "task": "proxy_classification",
+        "validation": "chronological 80/20",
+        "estimator.activation": "relu",
+        "estimator.alpha": "0.0001",
+        "estimator.batch_size": "auto",
+        "estimator.beta_1": "0.9",
+        "estimator.beta_2": "0.999",
+        "estimator.early_stopping": "True",
+        "estimator.epsilon": "1e-08",
+        "estimator.hidden_layer_sizes": "(32, 16)",
+        "estimator.learning_rate": "constant",
+        "estimator.learning_rate_init": "0.001",
+        "estimator.max_fun": "15000",
+        "estimator.max_iter": "120",
+        "estimator.momentum": "0.9",
+        "estimator.n_iter_no_change": "10",
+        "estimator.nesterovs_momentum": "True",
+        "estimator.power_t": "0.5",
+        "estimator.random_state": "42",
+        "estimator.shuffle": "True",
+        "estimator.solver": "adam",
+        "estimator.tol": "0.0001",
+        "estimator.validation_fraction": "0.1",
+        "estimator.verbose": "False",
+        "estimator.warm_start": "False"
+      },
+      "metrics": {
+        "accuracy": 0.9714671093587881,
+        "precision": 0.9357798165137615,
+        "recall": 0.9536585365853658,
+        "f1": 0.9446345882826656,
+        "roc_auc": 0.9911163741060649
+      }
+    },
+    {
+      "run_id": "80b5642d738c4fa59eeaeac9525df2c1",
+      "run_name": "traffic_regression_ridge_regression",
+      "parameters": {
+        "algorithm": "ridge_regression",
+        "task": "traffic_regression",
+        "validation": "chronological 80/20",
+        "estimator.alpha": "1.0",
+        "estimator.copy_X": "True",
+        "estimator.fit_intercept": "True",
+        "estimator.positive": "False",
+        "estimator.solver": "auto",
+        "estimator.tol": "0.0001"
+      },
+      "metrics": {
+        "mae": 845.0901051260839,
+        "r_squared": 0.6985718312234979
+      }
+    },
+    {
+      "run_id": "d4c18019af104b82b85524353e9c6c31",
+      "run_name": "traffic_regression_random_forest_regression",
+      "parameters": {
+        "algorithm": "random_forest_regression",
+        "task": "traffic_regression",
+        "validation": "chronological 80/20",
+        "estimator.bootstrap": "True",
+        "estimator.ccp_alpha": "0.0",
+        "estimator.criterion": "squared_error",
+        "estimator.max_depth": "10",
+        "estimator.max_features": "1.0",
+        "estimator.min_impurity_decrease": "0.0",
+        "estimator.min_samples_leaf": "8",
+        "estimator.min_samples_split": "2",
+        "estimator.min_weight_fraction_leaf": "0.0",
+        "estimator.n_estimators": "80",
+        "estimator.n_jobs": "-1",
+        "estimator.oob_score": "False",
+        "estimator.random_state": "42",
+        "estimator.verbose": "0",
+        "estimator.warm_start": "False"
+      },
+      "metrics": {
+        "mae": 289.4704806844414,
+        "r_squared": 0.929454133541521
+      }
+    },
+    {
+      "run_id": "b137de42f4324d8bbcb959b9ae2e2d08",
+      "run_name": "registered_MetroTrafficProxyRiskClassifier",
+      "parameters": {
+        "algorithm": "mlp_neural_network",
+        "threshold": "0.5",
+        "split": "chronological 80/20"
+      },
+      "metrics": {
+        "accuracy": 0.9714671093587881,
+        "precision": 0.9357798165137615,
+        "recall": 0.9536585365853658,
+        "f1": 0.9446345882826656,
+        "roc_auc": 0.9911163741060649
+      }
+    },
+    {
+      "run_id": "24fab25947ac4896bdb7aca50f9c8610",
+      "run_name": "registered_MetroTrafficVolumeRegressor",
+      "parameters": {
+        "algorithm": "random_forest_regression",
+        "split": "chronological 80/20"
+      },
+      "metrics": {
+        "mae": 289.4704806844414,
+        "r_squared": 0.929454133541521
+      }
+    }
+  ],
+  "registered_models": {
+    "MetroTrafficProxyRiskClassifier": [
+      {
+        "version": 2,
+        "run_id": "b137de42f4324d8bbcb959b9ae2e2d08",
+        "status": "READY"
+      },
+      {
+        "version": 1,
+        "run_id": "2a306e40fcbb4e888739586c615d205e",
+        "status": "READY"
+      }
+    ],
+    "MetroTrafficVolumeRegressor": [
+      {
+        "version": 2,
+        "run_id": "24fab25947ac4896bdb7aca50f9c8610",
+        "status": "READY"
+      },
+      {
+        "version": 1,
+        "run_id": "3cc1879a004c4cbeaca5494e4515726f",
+        "status": "READY"
+      }
+    ]
+  },
+  "note": "Portable summary exported from the local MLflow tracking store. The SQLite database and artifact files use machine-specific file URIs and are intentionally not versioned."
+}

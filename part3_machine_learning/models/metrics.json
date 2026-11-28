@@ -1,0 +1,260 @@
+{
+  "dataset": {
+    "path": "part2_python/data/processed/traffic_features.csv",
+    "rows": 48187,
+    "date_start": "2012-10-02 09:00:00",
+    "date_end": "2018-09-30 23:00:00",
+    "columns": 27,
+    "provenance_note": "Processed Part 2 output; raw CSV was not present in the checkout.",
+    "part3_impossible_weather_values_set_missing": {
+      "temp": 0,
+      "rain_1h": 0,
+      "snow_1h": 0,
+      "clouds_all": 0
+    }
+  },
+  "split": {
+    "method": "chronological",
+    "train_rows": 38549,
+    "test_rows": 9638,
+    "train_start": "2012-10-02 09:00:00",
+    "train_end": "2017-11-01 19:00:00",
+    "test_start": "2017-11-01 20:00:00",
+    "test_end": "2018-09-30 23:00:00"
+  },
+  "proxy_label": {
+    "definition": "traffic_volume > training Q2 and (severe weather category or clouds_all >= 80)",
+    "severe_weather_categories": [
+      "Drizzle",
+      "Dust",
+      "Fog",
+      "Haze",
+      "Mist",
+      "Rain",
+      "Sand",
+      "Smoke",
+      "Snow",
+      "Squall",
+      "Thunderstorm",
+      "Tornado"
+    ],
+    "low_visibility_definition": "clouds_all >= 80 on the source 0-100 scale",
+    "training_congestion_thresholds": {
+      "q1": 1186.0,
+      "q2": 3377.0,
+      "q3": 4939.0
+    },
+    "train_positive_count": 9540,
+    "train_positive_rate": 0.24747723676359956,
+    "test_positive_count": 2460,
+    "test_positive_rate": 0.25523967628138616,
+    "train_class_counts": {
+      "0": 29009,
+      "1": 9540
+    }
+  },
+  "baselines": {
+    "majority_class_accuracy": 0.7447603237186138,
+    "median_training_traffic_mae": 1720.6253372068893
+  },
+  "classification": {
+    "logistic_regression": {
+      "accuracy": 0.855882963270388,
+      "precision": 0.6612466124661247,
+      "recall": 0.8926829268292683,
+      "f1": 0.7597301504929943,
+      "roc_auc": 0.9492143450969199
+    },
+    "random_forest": {
+      "accuracy": 0.9706370616310438,
+      "precision": 0.9130929791271347,
+      "recall": 0.9780487804878049,
+      "f1": 0.9444553483807655,
+      "roc_auc": 0.9892065751947572
+    },
+    "mlp_neural_network": {
+      "accuracy": 0.9714671093587881,
+      "precision": 0.9357798165137615,
+      "recall": 0.9536585365853658,
+      "f1": 0.9446345882826656,
+      "roc_auc": 0.9911163741060649
+    }
+  },
+  "classification_ablation_without_weather_features": {
+    "accuracy": 0.7342809711558415,
+    "precision": 0.4880811895208874,
+    "recall": 0.8406504065040651,
+    "f1": 0.617589965656264,
+    "roc_auc": 0.8133755014758284
+  },
+  "regression": {
+    "ridge_regression": {
+      "mae": 845.0901051260839,
+      "r_squared": 0.6985718312234979
+    },
+    "random_forest_regression": {
+      "mae": 289.4704806844414,
+      "r_squared": 0.929454133541521
+    }
+  },
+  "selected_models": {
+    "proxy_classifier": "mlp_neural_network",
+    "traffic_regressor": "random_forest_regression",
+    "mlflow_model_versions": {
+      "proxy_risk_classifier": 2,
+      "traffic_volume_regressor": 2
+    }
+  },
+  "group_error_analysis": {
+    "day_type": {
+      "Weekday": {
+        "n": 6876,
+        "proxy_prevalence": 0.2881035485747528,
+        "proxy_precision": 0.9525208027410671,
+        "proxy_recall": 0.9823321554770318,
+        "proxy_f1": 0.967196819085487,
+        "proxy_mean_probability": 0.2956057743232778,
+        "traffic_mae": 280.33277935633146
+      },
+      "Weekend": {
+        "n": 2762,
+        "proxy_prevalence": 0.17342505430847213,
+        "proxy_precision": 0.8620689655172413,
+        "proxy_recall": 0.8350730688935282,
+        "proxy_f1": 0.848356309650053,
+        "proxy_mean_probability": 0.16634785466976773,
+        "traffic_mae": 312.21879144913515
+      }
+    },
+    "time_band": {
+      "AM peak": {
+        "n": 1668,
+        "proxy_prevalence": 0.4352517985611511,
+        "proxy_precision": 0.9575342465753425,
+        "proxy_recall": 0.9628099173553719,
+        "proxy_f1": 0.9601648351648352,
+        "proxy_mean_probability": 0.42525173147235,
+        "traffic_mae": 417.322405122809
+      },
+      "Evening": {
+        "n": 1574,
+        "proxy_prevalence": 0.01397712833545108,
+        "proxy_precision": 0.0,
+        "proxy_recall": 0.0,
+        "proxy_f1": 0.0,
+        "proxy_mean_probability": 0.015252821675184524,
+        "traffic_mae": 284.63707586302996
+      },
+      "Midday": {
+        "n": 2383,
+        "proxy_prevalence": 0.4746118338229123,
+        "proxy_precision": 0.9401709401709402,
+        "proxy_recall": 0.9725906277630415,
+        "proxy_f1": 0.9561060408518036,
+        "proxy_mean_probability": 0.47755340170448574,
+        "traffic_mae": 320.66451164386234
+      },
+      "Overnight": {
+        "n": 2433,
+        "proxy_prevalence": 0.0,
+        "proxy_precision": 0.0,
+        "proxy_recall": 0.0,
+        "proxy_f1": 0.0,
+        "proxy_mean_probability": 0.006221312611966804,
+        "traffic_mae": 95.66112761551665
+      },
+      "PM peak": {
+        "n": 1580,
+        "proxy_prevalence": 0.3677215189873418,
+        "proxy_precision": 0.9011532125205931,
+        "proxy_recall": 0.9414802065404475,
+        "proxy_f1": 0.9208754208754208,
+        "proxy_mean_probability": 0.38326837948445014,
+        "traffic_mae": 410.70690439716185
+      }
+    },
+    "weather_main": {
+      "Clear": {
+        "n": 2830,
+        "proxy_prevalence": 0.0,
+        "proxy_precision": 0.0,
+        "proxy_recall": 0.0,
+        "proxy_f1": 0.0,
+        "proxy_mean_probability": 3.7223047101128183e-06,
+        "traffic_mae": 256.5359125821658
+      },
+      "Clouds": {
+        "n": 2483,
+        "proxy_prevalence": 0.17720499395892067,
+        "proxy_precision": 0.9793103448275862,
+        "proxy_recall": 0.9681818181818181,
+        "proxy_f1": 0.9737142857142858,
+        "proxy_mean_probability": 0.17819706580728095,
+        "traffic_mae": 256.7259759684213
+      },
+      "Drizzle": {
+        "n": 339,
+        "proxy_prevalence": 0.5752212389380531,
+        "proxy_precision": 0.9743589743589743,
+        "proxy_recall": 0.9743589743589743,
+        "proxy_f1": 0.9743589743589743,
+        "proxy_mean_probability": 0.5796164976078197,
+        "traffic_mae": 208.73575331984696
+      },
+      "Fog": {
+        "n": 219,
+        "proxy_prevalence": 0.2465753424657534,
+        "proxy_precision": 0.7,
+        "proxy_recall": 0.9074074074074074,
+        "proxy_f1": 0.7903225806451613,
+        "proxy_mean_probability": 0.3180701889247473,
+        "traffic_mae": 546.9335119093365
+      },
+      "Haze": {
+        "n": 367,
+        "proxy_prevalence": 0.5449591280653951,
+        "proxy_precision": 0.9387755102040817,
+        "proxy_recall": 0.92,
+        "proxy_f1": 0.9292929292929293,
+        "proxy_mean_probability": 0.523054333303427,
+        "traffic_mae": 373.5695059037253
+      },
+      "Mist": {
+        "n": 1338,
+        "proxy_prevalence": 0.4162929745889387,
+        "proxy_precision": 0.944043321299639,
+        "proxy_recall": 0.9389587073608617,
+        "proxy_f1": 0.9414941494149415,
+        "proxy_mean_probability": 0.41148049424862887,
+        "traffic_mae": 293.2579262979498
+      },
+      "Rain": {
+        "n": 1032,
+        "proxy_prevalence": 0.5251937984496124,
+        "proxy_precision": 0.9516129032258065,
+        "proxy_recall": 0.9797047970479705,
+        "proxy_f1": 0.9654545454545455,
+        "proxy_mean_probability": 0.5401356255055699,
+        "traffic_mae": 250.62303531827203
+      },
+      "Snow": {
+        "n": 759,
+        "proxy_prevalence": 0.4440052700922266,
+        "proxy_precision": 0.8739495798319328,
+        "proxy_recall": 0.9258160237388724,
+        "proxy_f1": 0.899135446685879,
+        "proxy_mean_probability": 0.4522589072249583,
+        "traffic_mae": 492.794211737495
+      },
+      "Thunderstorm": {
+        "n": 269,
+        "proxy_prevalence": 0.4944237918215613,
+        "proxy_precision": 0.9219858156028369,
+        "proxy_recall": 0.9774436090225563,
+        "proxy_f1": 0.948905109489051,
+        "proxy_mean_probability": 0.5171633007087653,
+        "traffic_mae": 273.6359368340909
+      }
+    }
+  }
+}

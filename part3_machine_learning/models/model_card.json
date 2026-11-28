@@ -1,0 +1,45 @@
+{
+  "model_version": "1.0",
+  "dataset": {
+    "path": "part2_python/data/processed/traffic_features.csv",
+    "rows": 48187,
+    "date_start": "2012-10-02 09:00:00",
+    "date_end": "2018-09-30 23:00:00",
+    "columns": 27,
+    "provenance_note": "Processed Part 2 output; raw CSV was not present in the checkout.",
+    "part3_impossible_weather_values_set_missing": {
+      "temp": 0,
+      "rain_1h": 0,
+      "snow_1h": 0,
+      "clouds_all": 0
+    }
+  },
+  "selected_models": {
+    "proxy_classifier": "mlp_neural_network",
+    "traffic_regressor": "random_forest_regression",
+    "mlflow_model_versions": {
+      "proxy_risk_classifier": 2,
+      "traffic_volume_regressor": 2
+    }
+  },
+  "predictor_features": [
+    "temp",
+    "rain_1h",
+    "snow_1h",
+    "clouds_all",
+    "hour_sin",
+    "hour_cos",
+    "day_of_week_sin",
+    "day_of_week_cos",
+    "holiday",
+    "weather_main",
+    "day_type"
+  ],
+  "explicitly_excluded_predictors": [
+    "traffic_volume",
+    "congestion_category",
+    "proxy_accident_risk",
+    "all target-derived fields"
+  ],
+  "target_warning": "This is a congestion/weather proxy label, not an accident label or accident likelihood."
+}

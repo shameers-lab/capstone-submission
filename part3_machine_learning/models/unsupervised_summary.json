@@ -1,0 +1,5 @@
+{
+  "n_clusters": 4,
+  "silhouette_sample_size": 3000,
+  "silhouette_score": 0.16435783200210433
+}

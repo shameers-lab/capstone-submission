@@ -1,0 +1,82 @@
+[
+  {
+    "antecedent": "time_band=Midday AND day_type=Weekday",
+    "consequent": "high_or_severe_congestion",
+    "antecedent_count": 8448,
+    "support": 0.17106273476248782,
+    "confidence": 0.9757339015151515,
+    "lift": 1.9507795831180237
+  },
+  {
+    "antecedent": "time_band=Midday AND weather_group=Rain",
+    "consequent": "high_or_severe_congestion",
+    "antecedent_count": 1791,
+    "support": 0.036109324091559966,
+    "confidence": 0.9715242881072027,
+    "lift": 1.9423633254925639
+  },
+  {
+    "antecedent": "time_band=Midday AND weather_group=Other",
+    "consequent": "high_or_severe_congestion",
+    "antecedent_count": 4516,
+    "support": 0.09037707265445037,
+    "confidence": 0.9643489813994686,
+    "lift": 1.9280177730767651
+  },
+  {
+    "antecedent": "time_band=AM peak AND day_type=Weekday",
+    "consequent": "high_or_severe_congestion",
+    "antecedent_count": 5883,
+    "support": 0.11770809554444145,
+    "confidence": 0.9641339452660207,
+    "lift": 1.9275878524825218
+  },
+  {
+    "antecedent": "time_band=Midday AND weather_group=Clear",
+    "consequent": "high_or_severe_congestion",
+    "antecedent_count": 2903,
+    "support": 0.05800319588270696,
+    "confidence": 0.9627971064416121,
+    "lift": 1.9249151177537949
+  },
+  {
+    "antecedent": "time_band=Midday",
+    "consequent": "high_or_severe_congestion",
+    "antecedent_count": 11786,
+    "support": 0.23346545748853426,
+    "confidence": 0.9545223146105549,
+    "lift": 1.9083713705974115
+  },
+  {
+    "antecedent": "time_band=Midday AND weather_group=Fog_or_low_visibility",
+    "consequent": "high_or_severe_congestion",
+    "antecedent_count": 1654,
+    "support": 0.031606034822670014,
+    "confidence": 0.9207980652962515,
+    "lift": 1.8409466588843446
+  },
+  {
+    "antecedent": "time_band=Midday AND day_type=Weekend",
+    "consequent": "high_or_severe_congestion",
+    "antecedent_count": 3338,
+    "support": 0.062402722726046446,
+    "confidence": 0.9008388256440982,
+    "lift": 1.801042257543447
+  },
+  {
+    "antecedent": "time_band=Midday AND weather_group=Snow",
+    "consequent": "high_or_severe_congestion",
+    "antecedent_count": 743,
+    "support": 0.013883412538651503,
+    "confidence": 0.9004037685060565,
+    "lift": 1.8001724501286758
+  },
+  {
+    "antecedent": "time_band=PM peak AND weather_group=Other",
+    "consequent": "high_or_severe_congestion",
+    "antecedent_count": 3158,
+    "support": 0.05621848216323905,
+    "confidence": 0.8578214059531349,
+    "lift": 1.7150377598814917
+  }
+]
