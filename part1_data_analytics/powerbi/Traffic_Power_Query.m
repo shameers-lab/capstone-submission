@@ -19,8 +19,9 @@ let
             {"traffic_volume", Int64.Type}
         }
     ),
-    HolidayNullsToNoHoliday = Table.ReplaceValue(Typed, null, "", Replacer.ReplaceValue, {"holiday"}),
-    AddDate = Table.AddColumn(HolidayNullsToNoHoliday, "date", each Date.From([date_time]), type date),
+    HolidayNullsToNoHoliday = Table.ReplaceValue(Typed, null, "None", Replacer.ReplaceValue, {"holiday"}),
+    HolidayBlanksToNoHoliday = Table.ReplaceValue(HolidayNullsToNoHoliday, "", "None", Replacer.ReplaceValue, {"holiday"}),
+    AddDate = Table.AddColumn(HolidayBlanksToNoHoliday, "date", each Date.From([date_time]), type date),
     AddYear = Table.AddColumn(AddDate, "year", each Date.Year([date_time]), Int64.Type),
     AddHour = Table.AddColumn(AddYear, "hour", each Time.Hour(DateTime.Time([date_time])), Int64.Type),
     AddTemperatureC = Table.AddColumn(AddHour, "temp_c", each [temp] - 273.15, type number),
@@ -32,8 +33,12 @@ let
              else "High",
         type text
     ),
-    FlagZeroKelvin = Table.AddColumn(
+    FilteredValidRows = Table.SelectRows(
         AddTrafficCategory,
+        each [date_time] <> null and [traffic_volume] >= 0
+    ),
+    FlagZeroKelvin = Table.AddColumn(
+        FilteredValidRows,
         "temp_zero_kelvin_flag",
         each [temp] <= 0,
         type logical
@@ -43,6 +48,7 @@ let
         "rain_above_9000_mm_flag",
         each [rain_1h] > 9000,
         type logical
-    )
+    ),
+    RemovedDuplicates = Table.Distinct(FlagExtremeRain)
 in
-    FlagExtremeRain
+    RemovedDuplicates

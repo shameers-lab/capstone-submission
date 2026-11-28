@@ -1,24 +1,24 @@
 # Power BI dashboard build and verification
 
-The required dashboard visuals, measures, units, filters, and traffic-category boundaries are specified in `dashboard_spec.md`. The checked-in `Traffic_Data_Analysis.pbix` should be opened in Power BI Desktop and checked against that specification before submission. Power BI Desktop validation was not available during this work session.
+The required dashboard visuals, measures, units, filters, and traffic-category boundaries are specified in `dashboard_spec.md`. The PBIX uses a deduplicated model for the final report.
 
 ## Data source and Power Query
 
-The raw `Metro_Interstate_Traffic_Volume.csv` is not included in this checkout. Obtain the source dataset from the UCI Machine Learning Repository and preserve the original file. In Power Query, open `Traffic_Power_Query.m` and replace its placeholder path with the raw CSV location. The query declares the nine source fields and types, replaces missing holiday values with an empty no-holiday category, derives date/year/hour and Celsius temperature, assigns non-overlapping traffic categories (`<4500` Low, `4500–5500` Medium, `>5500` High), and adds flags for zero-K temperature and extreme rainfall. Review flagged records; do not remove associated traffic observations automatically.
+The raw `Metro_Interstate_Traffic_Volume.csv` is not included in this checkout. Obtain the source dataset from the UCI Machine Learning Repository and preserve the original file. In Power Query, open `Traffic_Power_Query.m` and replace its placeholder path with the raw CSV location. The query declares the nine source fields and types, standardizes blank holiday values to `None`, derives date/year/hour and Celsius temperature, assigns non-overlapping traffic categories (`<4500` Low, `4500–5500` Medium, `>5500` High), filters null timestamps and negative traffic, and flags zero-K temperature and extreme rainfall. It retains flagged traffic observations and removes exact duplicate rows, so the final model has 48,187 rows from the 48,204-row source.
 
-`traffic_dashboard_data.csv` is a prepared 48,204-row extract that can be used to inspect the prepared fields when the raw source is unavailable. It is not a substitute for validating the query against the original CSV.
+`traffic_dashboard_data.csv` is a prepared 48,204-row extract that can be used when the raw source is unavailable. It contains 17 exact duplicate rows; the PBIX query removes them before reporting. This extract is not a substitute for validating the raw-source query against the original CSV.
 
 ## Measures
 
 Use measures equivalent to:
 
 ```DAX
-Average Traffic = AVERAGE('traffic'[traffic_volume])
-Average Temperature (C) = AVERAGE('traffic'[temp_c])
-Observation Hours = COUNTROWS('traffic')
+Average Traffic = AVERAGE('TrafficData'[traffic_volume])
+Average Temperature (C) = AVERAGE('TrafficData'[temp_c])
+Observation Hours = COUNTROWS('TrafficData')
 ```
 
-Confirm the table name after loading the data. The hours card counts hourly records, not elapsed clock time; slicers and filters apply to all cards.
+The unfiltered observation-hours card should show 48,187. Apply `temp_zero_kelvin_flag = FALSE` as a visual-level filter on the average-temperature card and temperature scatter only; do not apply it to the whole page or report. This excludes impossible temperature readings from temperature-only calculations while retaining their valid traffic observations in traffic visuals. The hours card counts hourly records, not elapsed clock time; slicers and filters apply to all cards.
 
 ## Required pages/visuals
 

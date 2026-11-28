@@ -41,7 +41,7 @@ In the verified weekday/weekend output, average traffic was 3,533.60 vehicles on
 
 Weather conditions also carry a measurable relationship with traffic volume. The weather-based summary suggests that traffic varies by condition, with precipitation and poor visibility creating operationally relevant changes in drive patterns. The temperature-versus-traffic scatter plot shows that temperature alone is not a dominant predictor, but it remains part of the broader weather and time-of-day context that helps explain traffic variation.
 
-The previously verified raw-source run loaded 48,204 rows, removed 17 duplicate rows, and produced 48,187 cleaned rows. Its feature quartile thresholds were Q1=1,192.5, Q2=3,379, and Q3=4,933 vehicles: Low is at or below Q1, Medium is above Q1 and at or below Q2, High is above Q2 and at or below Q3, and Severe is above Q3. The tracked artifacts were refreshed from the checked-in cleaned projection after the rainfall range check was added; a new raw-source run remains unavailable because the original CSV is not included.
+The verified full-data run used the unchanged source CSV, loaded 48,204 rows, removed 17 exact duplicate rows, and produced 48,187 cleaned rows and 27 engineered columns. Both tracked processed CSVs are outputs of that pipeline run, not projections from one another. The raw CSV is not included in the repository; obtain it and place it at the repository root to reproduce the run. Its feature quartile thresholds were Q1=1,192.5, Q2=3,379, and Q3=4,933 vehicles: Low is at or below Q1, Medium is above Q1 and at or below Q2, High is above Q2 and at or below Q3, and Severe is above Q3.
 
 ## Operational meaning
 
