@@ -41,4 +41,4 @@ The import retains the 48,204 source rows, including exact duplicates. Both anal
 
 ## Power BI
 
-Open `powerbi/Traffic_Data_Analysis.pbix` in Power BI Desktop. The project owner has manually validated the dashboard. The prepared CSV and Power Query source are included alongside the dashboard build guide.
+Open `powerbi/Traffic_Data_Analysis.pbix` in Power BI Desktop. The prepared CSV and Power Query source are included alongside the dashboard build guide.
