@@ -1,6 +1,7 @@
 -- Smart City Traffic Capstone
 -- Part 1: Data Analytics
 -- Dataset: Metro_Interstate_Traffic_Volume.csv
+-- These SQLite queries use the checked-in database table named traffic.
 
 -- 1. Basic inspection
 SELECT
@@ -11,25 +12,25 @@ SELECT
     MIN(traffic_volume) AS min_traffic,
     MAX(traffic_volume) AS max_traffic,
     AVG(traffic_volume) AS avg_traffic
-FROM traffic_volume_data;
+FROM traffic;
 
 -- 2. Peak traffic hours by time-of-day
 SELECT
-    EXTRACT(HOUR FROM date_time) AS hour_of_day,
+    CAST(strftime('%H', date_time) AS INTEGER) AS hour_of_day,
     AVG(traffic_volume) AS avg_traffic_volume,
     MAX(traffic_volume) AS peak_traffic_volume
-FROM traffic_volume_data
-GROUP BY EXTRACT(HOUR FROM date_time)
+FROM traffic
+GROUP BY CAST(strftime('%H', date_time) AS INTEGER)
 ORDER BY avg_traffic_volume DESC;
 
 -- 3. Daily traffic trend
 SELECT
-    CAST(date_time AS DATE) AS traffic_date,
+    date(date_time) AS traffic_date,
     AVG(traffic_volume) AS avg_daily_traffic,
     MAX(traffic_volume) AS max_daily_traffic,
     MIN(traffic_volume) AS min_daily_traffic
-FROM traffic_volume_data
-GROUP BY CAST(date_time AS DATE)
+FROM traffic
+GROUP BY date(date_time)
 ORDER BY traffic_date;
 
 -- 4. Impact of weather conditions
@@ -39,7 +40,7 @@ SELECT
     AVG(traffic_volume) AS avg_traffic,
     MIN(traffic_volume) AS min_traffic,
     MAX(traffic_volume) AS max_traffic
-FROM traffic_volume_data
+FROM traffic
 GROUP BY weather_main
 ORDER BY avg_traffic DESC;
 
@@ -48,7 +49,7 @@ SELECT
     holiday,
     AVG(traffic_volume) AS avg_traffic,
     COUNT(*) AS count_records
-FROM traffic_volume_data
+FROM traffic
 GROUP BY holiday
 ORDER BY avg_traffic DESC;
 
@@ -61,7 +62,7 @@ SELECT
     END AS precipitation_status,
     AVG(traffic_volume) AS avg_traffic_volume,
     COUNT(*) AS records
-FROM traffic_volume_data
+FROM traffic
 GROUP BY CASE
     WHEN rain_1h > 0 THEN 'Rain'
     WHEN snow_1h > 0 THEN 'Snow'
@@ -70,40 +71,49 @@ END
 ORDER BY avg_traffic_volume DESC;
 
 -- 7. Congestion threshold checks
+-- Match the Part 1 probability definition: congestion is strictly above 5,500.
 SELECT
     COUNT(*) AS high_traffic_hours
-FROM traffic_volume_data
-WHERE traffic_volume >= 5000;
+FROM traffic
+WHERE traffic_volume > 5500;
 
 -- 8. Weekly traffic pattern
+WITH daily AS (
+    SELECT
+        CAST(strftime('%w', date_time) AS INTEGER) AS weekday_num,
+        traffic_volume
+    FROM traffic
+)
 SELECT
-    TO_CHAR(date_time, 'Day') AS day_name,
+    CASE weekday_num
+        WHEN 0 THEN 'Sunday'
+        WHEN 1 THEN 'Monday'
+        WHEN 2 THEN 'Tuesday'
+        WHEN 3 THEN 'Wednesday'
+        WHEN 4 THEN 'Thursday'
+        WHEN 5 THEN 'Friday'
+        WHEN 6 THEN 'Saturday'
+    END AS day_name,
     AVG(traffic_volume) AS avg_traffic,
     MAX(traffic_volume) AS max_traffic
-FROM traffic_volume_data
-GROUP BY TO_CHAR(date_time, 'Day')
-ORDER BY CASE
-    WHEN TO_CHAR(date_time, 'Day') = 'Monday' THEN 1
-    WHEN TO_CHAR(date_time, 'Day') = 'Tuesday' THEN 2
-    WHEN TO_CHAR(date_time, 'Day') = 'Wednesday' THEN 3
-    WHEN TO_CHAR(date_time, 'Day') = 'Thursday' THEN 4
-    WHEN TO_CHAR(date_time, 'Day') = 'Friday' THEN 5
-    WHEN TO_CHAR(date_time, 'Day') = 'Saturday' THEN 6
-    WHEN TO_CHAR(date_time, 'Day') = 'Sunday' THEN 7
-END;
+FROM daily
+GROUP BY weekday_num
+ORDER BY CASE weekday_num WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 3
+                          WHEN 4 THEN 4 WHEN 5 THEN 5 WHEN 6 THEN 6 ELSE 7 END;
 
 -- 9. Commute-hour heatmap candidate query
-SELECT
-    EXTRACT(HOUR FROM date_time) AS hour_of_day,
-    CASE
-        WHEN EXTRACT(ISODOW FROM date_time) IN (1,2,3,4,5) THEN 'Weekday'
-        ELSE 'Weekend'
-    END AS traffic_day_type,
-    AVG(traffic_volume) AS avg_volume
-FROM traffic_volume_data
-GROUP BY EXTRACT(HOUR FROM date_time),
-    CASE
-        WHEN EXTRACT(ISODOW FROM date_time) IN (1,2,3,4,5) THEN 'Weekday'
-        ELSE 'Weekend'
-    END
+WITH hourly AS (
+    SELECT
+        CAST(strftime('%H', date_time) AS INTEGER) AS hour_of_day,
+        CASE
+            WHEN CAST(strftime('%w', date_time) AS INTEGER) BETWEEN 1 AND 5
+                THEN 'Weekday'
+            ELSE 'Weekend'
+        END AS traffic_day_type,
+        traffic_volume
+    FROM traffic
+)
+SELECT hour_of_day, traffic_day_type, AVG(traffic_volume) AS avg_volume
+FROM hourly
+GROUP BY hour_of_day, traffic_day_type
 ORDER BY hour_of_day, traffic_day_type;

@@ -6,7 +6,7 @@ Part 1 contains the Metro Interstate Traffic Volume data analysis, reproducible 
 
 - `insights_report.pdf` — required, two-page decision-focused report; `insight_report.md` is an additional text version.
 - `sql/traffic_analysis.db` — SQLite database with 48,204 source records and the prepared analysis columns.
-- `sql/traffic_analysis.sql`, `sql/traffic_analytics.sql`, and `sql/sqlite_database_setup.sql` — import, validation, and analysis queries.
+- `sql/traffic_analysis.sql`, `sql/traffic_analytics.sql`, and `sql/sqlite_database_setup.sql` — SQLite validation, import, and analysis queries using the common `traffic` table.
 - `statistics/analyze_part1.py` — reproducible analysis script.
 - `statistics/` — annual, daily, hourly, holiday, weather, probability, and descriptive-statistics outputs and figures.
 - `powerbi/Traffic_Data_Analysis.pbix` — native Power BI project file.
@@ -26,6 +26,18 @@ python .\part1_data_analytics\statistics\analyze_part1.py --input ".\Metro_Inter
 ```
 
 The generated analysis preserves the 17 exact duplicate source records and flags implausible values for review rather than silently deleting valid traffic extremes. See `statistics/README.md` for definitions and outputs.
+
+To reproduce the SQLite import without overwriting the checked-in database, open a fresh database from the repository root and run these SQLite CLI commands:
+
+```text
+sqlite3 traffic_analysis_repro.db
+.read part1_data_analytics/sql/sqlite_database_setup.sql
+.mode csv
+.import --skip 1 "Metro_Interstate_Traffic_Volume.csv" traffic
+.quit
+```
+
+The import retains the 48,204 source rows, including exact duplicates. Both analysis query files target the resulting `traffic` table and use SQLite date/time functions.
 
 ## Power BI
 

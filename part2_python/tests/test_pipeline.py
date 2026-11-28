@@ -70,6 +70,10 @@ class PipelineTests(unittest.TestCase):
 
         self.assertEqual(loaded.loc[0, 'holiday'], 'None')
         self.assertTrue(pd.isna(loaded.loc[1, 'holiday']))
+        with self.assertLogs('pipeline', level='WARNING'):
+            cleaned = clean_dataset(loaded)
+        self.assertEqual(cleaned.loc[0, 'holiday'], 'None')
+        self.assertEqual(cleaned.loc[1, 'holiday'], 'Unknown')
 
     def test_clean_dataset_removes_duplicates_and_uses_month_medians(self):
         rows = [
