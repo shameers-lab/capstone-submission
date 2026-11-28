@@ -1,0 +1,37 @@
+{
+  "status": "ALERT / Requires investigation",
+  "method": "Simulated chronological feature-distribution monitoring using population stability index (PSI).",
+  "threshold": 0.2,
+  "reference_rows": 38549,
+  "current_rows": 9638,
+  "reference_date_range": [
+    "2012-10-02 09:00:00",
+    "2017-11-01 19:00:00"
+  ],
+  "current_date_range": [
+    "2017-11-01 20:00:00",
+    "2018-09-30 23:00:00"
+  ],
+  "feature_psi": {
+    "temp": 0.12327166812248767,
+    "rain_1h": 0.0018209101947716272,
+    "snow_1h": 1.0786837887705825e-10,
+    "clouds_all": 0.3966601177638499,
+    "hour": 0.0006696253486265805,
+    "weather_main": 0.041451171501144905
+  },
+  "concerning_features": {
+    "clouds_all": 0.3966601177638499
+  },
+  "proxy_label_prevalence": {
+    "reference_period": 0.24747723676359956,
+    "current_period": 0.25523967628138616,
+    "ratio_current_to_reference": 1.031366276831358
+  },
+  "thresholds_used_for_proxy_label": {
+    "q1": 1186.0,
+    "q2": 3377.0,
+    "q3": 4939.0
+  },
+  "interpretation": "This is a retrospective simulation, not production monitoring. A drift alert requests review; it does not establish model failure or a change in real accident risk."
+}

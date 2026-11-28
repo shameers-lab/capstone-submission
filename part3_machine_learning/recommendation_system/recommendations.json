@@ -1,0 +1,103 @@
+{
+  "dataset_rows": 48187,
+  "date_start": "2012-10-02 09:00:00",
+  "date_end": "2018-09-30 23:00:00",
+  "corridor_scope": "Single observed Metro Interstate traffic corridor; no route optimization.",
+  "recommendations_by_day_type": [
+    {
+      "day_type": "Weekday",
+      "hour": 2,
+      "local_time_window": "02:00-03:00",
+      "historical_mean_traffic_vehicles_per_hour": 301.98,
+      "historical_median_traffic_vehicles_per_hour": 287.0,
+      "observations": 1455,
+      "basis": "Lowest historical hourly averages within this day type, minimum 100 observations."
+    },
+    {
+      "day_type": "Weekday",
+      "hour": 3,
+      "local_time_window": "03:00-04:00",
+      "historical_mean_traffic_vehicles_per_hour": 362.29,
+      "historical_median_traffic_vehicles_per_hour": 355.0,
+      "observations": 1456,
+      "basis": "Lowest historical hourly averages within this day type, minimum 100 observations."
+    },
+    {
+      "day_type": "Weekday",
+      "hour": 1,
+      "local_time_window": "01:00-02:00",
+      "historical_mean_traffic_vehicles_per_hour": 396.91,
+      "historical_median_traffic_vehicles_per_hour": 378.0,
+      "observations": 1449,
+      "basis": "Lowest historical hourly averages within this day type, minimum 100 observations."
+    },
+    {
+      "day_type": "Weekend",
+      "hour": 4,
+      "local_time_window": "04:00-05:00",
+      "historical_mean_traffic_vehicles_per_hour": 375.42,
+      "historical_median_traffic_vehicles_per_hour": 376.0,
+      "observations": 595,
+      "basis": "Lowest historical hourly averages within this day type, minimum 100 observations."
+    },
+    {
+      "day_type": "Weekend",
+      "hour": 3,
+      "local_time_window": "03:00-04:00",
+      "historical_mean_traffic_vehicles_per_hour": 393.61,
+      "historical_median_traffic_vehicles_per_hour": 389.0,
+      "observations": 569,
+      "basis": "Lowest historical hourly averages within this day type, minimum 100 observations."
+    },
+    {
+      "day_type": "Weekend",
+      "hour": 2,
+      "local_time_window": "02:00-03:00",
+      "historical_mean_traffic_vehicles_per_hour": 611.17,
+      "historical_median_traffic_vehicles_per_hour": 604.0,
+      "observations": 564,
+      "basis": "Lowest historical hourly averages within this day type, minimum 100 observations."
+    }
+  ],
+  "plain_language_recommendations": [
+    "On weekdays, consider the historical lower-volume window 02:00-03:00 (mean 301.98 vehicles/hour across 1455 observations); verify current conditions first.",
+    "On weekdays, consider the historical lower-volume window 03:00-04:00 (mean 362.29 vehicles/hour across 1456 observations); verify current conditions first.",
+    "On weekdays, consider the historical lower-volume window 01:00-02:00 (mean 396.91 vehicles/hour across 1449 observations); verify current conditions first.",
+    "On weekends, consider the historical lower-volume window 04:00-05:00 (mean 375.42 vehicles/hour across 595 observations); verify current conditions first.",
+    "On weekends, consider the historical lower-volume window 03:00-04:00 (mean 393.61 vehicles/hour across 569 observations); verify current conditions first.",
+    "On weekends, consider the historical lower-volume window 02:00-03:00 (mean 611.17 vehicles/hour across 564 observations); verify current conditions first."
+  ],
+  "lowest_sampled_hour_by_weather": [
+    {
+      "weather_main": "Clear",
+      "hour": 3,
+      "historical_mean_traffic_vehicles_per_hour": 377.31,
+      "observations": 623
+    },
+    {
+      "weather_main": "Clouds",
+      "hour": 3,
+      "historical_mean_traffic_vehicles_per_hour": 371.11,
+      "observations": 439
+    },
+    {
+      "weather_main": "Mist",
+      "hour": 3,
+      "historical_mean_traffic_vehicles_per_hour": 366.42,
+      "observations": 354
+    },
+    {
+      "weather_main": "Rain",
+      "hour": 3,
+      "historical_mean_traffic_vehicles_per_hour": 372.7,
+      "observations": 244
+    },
+    {
+      "weather_main": "Snow",
+      "hour": 3,
+      "historical_mean_traffic_vehicles_per_hour": 359.1,
+      "observations": 128
+    }
+  ],
+  "caution": "Historical associations only; traffic is not guaranteed to be low in future. Recommendations are not safety guidance and do not account for incidents, events, road works, or live conditions."
+}
